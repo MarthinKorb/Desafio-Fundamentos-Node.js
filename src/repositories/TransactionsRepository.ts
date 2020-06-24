@@ -28,10 +28,10 @@ class TransactionsRepository {
     const balance = this.transactions.reduce((accumulator: Balance, transaction: Transaction) => {
 
       if (transaction.type === 'income') {
-        accumulator.income += transaction.value;
+        accumulator.income = accumulator.income + transaction.value;
       }
       if (transaction.type === 'outcome') {
-        accumulator.outcome += transaction.value;
+        accumulator.outcome = accumulator.outcome + transaction.value;
       }
       return accumulator;
     },
